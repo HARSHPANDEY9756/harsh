@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StockScope | Stock Insights & Recommendations</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>📈 StockScope</h1>
+        <p>Track key metrics and get quick stock recommendations.</p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="card">
+        <h2>Stock Lookup</h2>
+        <p class="muted">Choose one of the sample stocks to view details.</p>
+        <form id="stock-form" class="form-row">
+          <label for="symbol" class="sr-only">Ticker</label>
+          <select id="symbol" required>
+            <option value="">Select a ticker</option>
+            <option value="AAPL">AAPL</option>
+            <option value="MSFT">MSFT</option>
+            <option value="GOOGL">GOOGL</option>
+            <option value="NVDA">NVDA</option>
+            <option value="TSLA">TSLA</option>
+            <option value="AMZN">AMZN</option>
+          </select>
+          <button type="submit">Analyze</button>
+        </form>
+
+        <div id="stock-result" class="result hidden" aria-live="polite"></div>
+      </section>
+
+      <section class="card">
+        <h2>Custom Recommendation</h2>
+        <p class="muted">Enter your own stock metrics and receive a recommendation score.</p>
+        <form id="custom-form" class="custom-grid">
+          <label>
+            P/E Ratio
+            <input type="number" id="pe" min="0" step="0.1" required />
+          </label>
+          <label>
+            Revenue Growth (%)
+            <input type="number" id="growth" step="0.1" required />
+          </label>
+          <label>
+            Debt to Equity
+            <input type="number" id="de" min="0" step="0.01" required />
+          </label>
+          <label>
+            Return on Equity (%)
+            <input type="number" id="roe" step="0.1" required />
+          </label>
+          <button type="submit" class="full-width">Get Recommendation</button>
+        </form>
+
+        <div id="custom-result" class="result hidden" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>
+        Educational tool only — not financial advice. Always do your own research.
+      </small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
